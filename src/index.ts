@@ -16,9 +16,9 @@ app.use("/sockets", router)
 
 const server = createServer(app);
 initializeSocket(server);
-// app.get("/", (req: Request, res: Response) => {
-// 	res.send("Hello, Typescript with express")
-// })
+app.get("/", (req: Request, res: Response) => {
+	res.send("Hello, Typescript with express")
+})
 
 server.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`)
