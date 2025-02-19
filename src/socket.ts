@@ -77,3 +77,11 @@ router.post("/notify-loan-officer", (req: any, res: any) => {
 })
 
 
+router.post("/notify-admin", (req: any, res:any)  => {
+	if (!io) return res.status(500).json({ error: "Socket.io is not initiallized" });
+	const {message} = req.body;
+	console.log(message)
+	io.emit("notifyAdmin", message);
+
+	return  res.json({success:true})
+})
